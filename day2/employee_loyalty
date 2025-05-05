@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# ----------------------------------------
+# Simple Loyalty Bonus Evaluation Script
+# Usage: ./employee_loyalty NAME REPORTED_TO PERFORMANCE_SCORE
+# Example: ./employee_loyalty Alice "HR Manager" 95
+# ----------------------------------------
+
+employee_name="$1"
+reported_to="$2"
+performance_score="$3"
+
+# Check if all arguments are provided
+if [[ -z "$employee_name" || -z "$reported_to" || -z "$performance_score" ]]; then
+    echo "Usage: $0 NAME REPORTED_TO PERFORMANCE_SCORE"
+    exit 1
+fi
+
+# Evaluation logic
+if [[ "$reported_to" == "HR Manager" ]]; then
+    echo "$employee_name qualifies for a loyalty bonus."
+elif (( performance_score >= 90 )); then
+    echo "$employee_name qualifies for a loyalty bonus."
+else
+    echo "$employee_name does not qualify for a loyalty bonus."
+fi
+
+
